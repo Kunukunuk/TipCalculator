@@ -38,18 +38,18 @@ class ViewController: UIViewController {
         var amountDouble = 0.0
         switch digit {
             case "⌫":
-                if amountString.count <= 1 {
-                    amountString = String(amountString.prefix(amountString.count-1))
-                    displayAmount(bill: 0.0)
-                } else {
-                    amountString = String(amountString.prefix(amountString.count-1))
-                    amountDouble = Double(amountString)!
-                    displayAmount(bill: amountDouble)
+                if !(amountString.count == 0) {
+                    if amountString.count <= 1 {
+                        amountString = String(amountString.prefix(amountString.count-1))
+                        displayAmount(bill: 0.0)
+                    } else {
+                        amountString = String(amountString.prefix(amountString.count-1))
+                        amountDouble = Double(amountString)!
+                        displayAmount(bill: amountDouble)
+                    }
                 }
             case ".":
-                if amountString.count == 0 {
-                    displayAmount(bill: 0.0)
-                } else {
+                if !amountString.contains(".") {
                     amountString += digit!
                     amountDouble = Double(amountString)!
                     displayAmount(bill: amountDouble)
@@ -63,9 +63,13 @@ class ViewController: UIViewController {
     }
     
     func displayAmount(bill amount: Double) {
+        let locale = Locale.current
+        let currencySymbol = locale.currencySymbol!
+        let currencyCode = locale.currencyCode!
+        
         billAmount.text = "Bill Amount: " + String(amount)
         tipAmount.text = "Tip Amount: " + String(amount * tipPercentage)
-        totalAmount.text = "Total Bill: " + String(amount * (1 + tipPercentage))
+        totalAmount.text = "Total Bill: \(currencyCode) \(currencySymbol) " + String(amount * (1 + tipPercentage))
         
     }
 }
