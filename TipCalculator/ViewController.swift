@@ -63,9 +63,9 @@ class ViewController: UIViewController {
     }
     
     func displayAmount(bill amount: Double) {
-        billAmount.text = String(amount)
-        tipAmount.text = String(amount * tipPercentage)
-        totalAmount.text = String(amount * (1 + tipPercentage))
+        billAmount.text = "Bill Amount: " + String(amount)
+        tipAmount.text = "Tip Amount: " + String(amount * tipPercentage)
+        totalAmount.text = "Total Bill: " + String(amount * (1 + tipPercentage))
         
     }
 }
