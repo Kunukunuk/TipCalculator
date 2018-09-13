@@ -67,9 +67,15 @@ class ViewController: UIViewController {
         let currencySymbol = locale.currencySymbol!
         let currencyCode = locale.currencyCode!
         
-        billAmount.text = "Bill Amount: " + String(amount)
-        tipAmount.text = "Tip Amount: " + String(amount * tipPercentage)
-        totalAmount.text = "Total Bill: \(currencyCode) \(currencySymbol) " + String(amount * (1 + tipPercentage))
+        if amountString.contains(".") {
+            billAmount.text = "Bill Amount: \(currencyCode) \(currencySymbol) " + String(amount)
+            tipAmount.text = "Tip Amount: " + String(amount * tipPercentage)
+            totalAmount.text = "Total Bill: \(currencyCode) \(currencySymbol) " + String(amount * (1 + tipPercentage))
+        } else {
+            billAmount.text = "Bill Amount: \(currencyCode) \(currencySymbol) " + String(Int(amount))
+            tipAmount.text = "Tip Amount: " + String(Int(amount * tipPercentage))
+            totalAmount.text = "Total Bill: \(currencyCode) \(currencySymbol) " + String(Int(amount * (1 + tipPercentage)))
+        }
         
     }
 }
