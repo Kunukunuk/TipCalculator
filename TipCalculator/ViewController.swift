@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     @IBAction func setTip(_ sender: UIButton) {
         
         tipPercentage = Double(enteredTip.text!)! / 100
-        enteredTip.text = String(tipPercentage * 100)
+        enteredTip.text = String(Int(tipPercentage * 100))
     }
     
     override func didReceiveMemoryWarning() {
