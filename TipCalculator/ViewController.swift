@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("tip Percentage \(tipPercentage)")
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -26,6 +27,7 @@ class ViewController: UIViewController {
         
         tipPercentage = Double(enteredTip.text!)! / 100
         enteredTip.text = String(Int(tipPercentage * 100))
+        view.endEditing(true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -64,10 +66,22 @@ class ViewController: UIViewController {
     
     func displayAmount(bill amount: Double) {
         let locale = Locale.current
-        let currencySymbol = locale.currencySymbol!
+        //let currencySymbol = locale.currencySymbol!
         let currencyCode = locale.currencyCode!
         
-        if amountString.contains(".") {
+        let currencyFormat = NumberFormatter()
+        currencyFormat.usesGroupingSeparator = true
+        currencyFormat.numberStyle = .currency
+        currencyFormat.locale = locale
+        let price = currencyFormat.string(from: NSNumber(value: amount))!
+        let tipPrice = currencyFormat.string(from: NSNumber(value: amount * tipPercentage))!
+        let totalPrice = currencyFormat.string(from: NSNumber(value: amount * (1 + tipPercentage)))!
+        
+        billAmount.text = "Bill Amount: \(currencyCode) \(price)"
+        tipAmount.text = "Tip Amount: \(currencyCode) \(tipPrice)"
+        totalAmount.text = "Total Bill: \(currencyCode) \(totalPrice)"
+        
+        /*if amountString.contains(".") {
             billAmount.text = "Bill Amount: \(currencyCode) \(currencySymbol) " + String(amount)
             tipAmount.text = "Tip Amount: " + String(amount * tipPercentage)
             totalAmount.text = "Total Bill: \(currencyCode) \(currencySymbol) " + String(amount * (1 + tipPercentage))
@@ -75,8 +89,9 @@ class ViewController: UIViewController {
             billAmount.text = "Bill Amount: \(currencyCode) \(currencySymbol) " + String(Int(amount))
             tipAmount.text = "Tip Amount: " + String(Int(amount * tipPercentage))
             totalAmount.text = "Total Bill: \(currencyCode) \(currencySymbol) " + String(Int(amount * (1 + tipPercentage)))
-        }
+        }*/
         
     }
+    
 }
 

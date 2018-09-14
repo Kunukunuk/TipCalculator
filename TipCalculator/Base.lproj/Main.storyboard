@@ -226,7 +226,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Tip Calculator" id="Aku-AB-xeJ"/>
+                    <navigationItem key="navigationItem" title="Tip Calculator" id="Aku-AB-xeJ">
+                        <barButtonItem key="rightBarButtonItem" title="Setting" id="Zgt-Ir-w6L">
+                            <connections>
+                                <segue destination="b8r-eZ-oiN" kind="show" id="t7Y-hI-WGi"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="billAmount" destination="408-pj-GMQ" id="S5r-KX-h1x"/>
                         <outlet property="enteredTip" destination="Qoy-tK-QiG" id="zKd-YG-Uy7"/>
@@ -237,6 +243,56 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1152.8" y="792.95352323838085"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="hfU-ZU-bD6">
+            <objects>
+                <viewController id="b8r-eZ-oiN" customClass="SettingsViewController" customModule="TipCalculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zo1-Dg-UaU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="L0h-Bd-chc">
+                                <rect key="frame" x="0.0" y="64" width="375" height="39"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Tip Percentage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W7b-mS-LgJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="235" height="39"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OwY-12-e83">
+                                        <rect key="frame" x="245" y="0.0" width="46" height="39"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <state key="normal" title="Set"/>
+                                        <connections>
+                                            <action selector="setTipAmount:" destination="b8r-eZ-oiN" eventType="touchUpInside" id="6Wd-D8-hS0"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="20" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ExW-ma-KZD">
+                                        <rect key="frame" x="301" y="0.0" width="74" height="39"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="h6F-xa-nHc" firstAttribute="trailing" secondItem="L0h-Bd-chc" secondAttribute="trailing" id="JVC-3I-ozy"/>
+                            <constraint firstItem="L0h-Bd-chc" firstAttribute="top" secondItem="h6F-xa-nHc" secondAttribute="top" id="Pmf-6W-tgK"/>
+                            <constraint firstItem="L0h-Bd-chc" firstAttribute="leading" secondItem="h6F-xa-nHc" secondAttribute="leading" id="U5H-xZ-t3r"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="h6F-xa-nHc"/>
+                    </view>
+                    <connections>
+                        <outlet property="enterTip" destination="ExW-ma-KZD" id="uAU-Ps-nD6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2VK-gD-6Vi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2007" y="793"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="UyY-mT-xHP">
