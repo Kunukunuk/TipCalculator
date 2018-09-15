@@ -29,37 +29,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="wjA-0M-ocg">
-                                <rect key="frame" x="0.0" y="164" width="375" height="50"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tip Percentage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VJf-md-1Zw">
-                                        <rect key="frame" x="0.0" y="0.0" width="194" height="50"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r0T-hZ-Cw2">
-                                        <rect key="frame" x="214" y="0.0" width="50.5" height="50"/>
-                                        <state key="normal" title="Set"/>
-                                        <connections>
-                                            <action selector="setTip:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sfT-bR-brC"/>
-                                        </connections>
-                                    </button>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="20" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qoy-tK-QiG">
-                                        <rect key="frame" x="284.5" y="0.0" width="90.5" height="50"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <action selector="customTip:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="kzI-Yv-l5d"/>
-                                        </connections>
-                                    </textField>
-                                </subviews>
-                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="wjA-0M-ocg" secondAttribute="height" multiplier="112:15" id="T7j-Cx-cdz"/>
-                                </constraints>
-                            </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tip" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d5l-zH-qHe">
                                 <rect key="frame" x="0.0" y="214" width="375" height="50"/>
                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -201,27 +170,34 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tip Percentage" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="603-7P-b20">
+                                <rect key="frame" x="0.0" y="164" width="375" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="603-7P-b20" secondAttribute="height" multiplier="15:2" id="LBD-ft-7ua"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="wjA-0M-ocg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="0Dc-WY-Od1"/>
                             <constraint firstItem="xUk-AT-iLQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5B6-yp-kfn"/>
                             <constraint firstItem="xUk-AT-iLQ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="5K6-eM-Q1f"/>
+                            <constraint firstItem="603-7P-b20" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="5hT-6s-DLW"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gHy-nR-I3O" secondAttribute="trailing" id="BQa-1w-EKa"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gHy-nR-I3O" secondAttribute="bottom" id="E9z-wd-nZg"/>
-                            <constraint firstItem="d5l-zH-qHe" firstAttribute="top" secondItem="wjA-0M-ocg" secondAttribute="bottom" id="FB1-iq-XXq"/>
                             <constraint firstItem="gHy-nR-I3O" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Opr-RF-d3m"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wjA-0M-ocg" secondAttribute="trailing" id="Sv4-ha-7cc"/>
                             <constraint firstItem="408-pj-GMQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="TBM-xT-Yp7"/>
-                            <constraint firstItem="d5l-zH-qHe" firstAttribute="top" secondItem="wjA-0M-ocg" secondAttribute="bottom" id="VBl-p3-oCf"/>
-                            <constraint firstItem="wjA-0M-ocg" firstAttribute="top" secondItem="408-pj-GMQ" secondAttribute="bottom" id="ZZ4-J4-aJf"/>
+                            <constraint firstItem="d5l-zH-qHe" firstAttribute="top" secondItem="603-7P-b20" secondAttribute="bottom" id="cBa-9B-OaP"/>
                             <constraint firstItem="408-pj-GMQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="g8v-A3-P6M"/>
+                            <constraint firstItem="603-7P-b20" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gXn-Fq-PCt"/>
                             <constraint firstItem="d5l-zH-qHe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="h61-5W-pYZ"/>
                             <constraint firstItem="gHy-nR-I3O" firstAttribute="top" secondItem="xUk-AT-iLQ" secondAttribute="bottom" id="hS8-L5-6ne"/>
                             <constraint firstItem="408-pj-GMQ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="hqs-XA-ZAd"/>
-                            <constraint firstItem="wjA-0M-ocg" firstAttribute="top" secondItem="408-pj-GMQ" secondAttribute="bottom" id="iUA-Xx-kxw"/>
                             <constraint firstItem="xUk-AT-iLQ" firstAttribute="top" secondItem="d5l-zH-qHe" secondAttribute="bottom" id="icR-ut-YfW"/>
                             <constraint firstItem="xUk-AT-iLQ" firstAttribute="top" secondItem="d5l-zH-qHe" secondAttribute="bottom" id="oFQ-ix-t5k"/>
+                            <constraint firstItem="603-7P-b20" firstAttribute="top" secondItem="408-pj-GMQ" secondAttribute="bottom" id="tQ8-t1-JCE"/>
                             <constraint firstItem="d5l-zH-qHe" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="yPl-OU-uQ2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -235,8 +211,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="billAmount" destination="408-pj-GMQ" id="S5r-KX-h1x"/>
-                        <outlet property="enteredTip" destination="Qoy-tK-QiG" id="zKd-YG-Uy7"/>
                         <outlet property="tipAmount" destination="d5l-zH-qHe" id="MTS-dn-j10"/>
+                        <outlet property="tipPercentageLabel" destination="603-7P-b20" id="3NJ-ux-07I"/>
                         <outlet property="totalAmount" destination="xUk-AT-iLQ" id="Wrv-Bk-DsG"/>
                     </connections>
                 </viewController>

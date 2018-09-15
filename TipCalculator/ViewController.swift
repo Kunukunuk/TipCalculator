@@ -15,19 +15,11 @@ class ViewController: UIViewController {
     var amountString = ""
     var tipPercentage = 0.20
     @IBOutlet weak var tipAmount: UILabel!
-    @IBOutlet weak var enteredTip: UITextField!
+    @IBOutlet weak var tipPercentageLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("tip Percentage \(tipPercentage)")
         // Do any additional setup after loading the view, typically from a nib.
-    }
-    
-    @IBAction func setTip(_ sender: UIButton) {
-        
-        tipPercentage = Double(enteredTip.text!)! / 100
-        enteredTip.text = String(Int(tipPercentage * 100))
-        view.endEditing(true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -52,9 +44,14 @@ class ViewController: UIViewController {
                 }
             case ".":
                 if !amountString.contains(".") {
+                    print(amountString + " asd")
                     amountString += digit!
-                    amountDouble = Double(amountString)!
-                    displayAmount(bill: amountDouble)
+                    if amountString.count == 1 {
+                        displayAmount(bill: 0.0)
+                    } else {
+                        amountDouble = Double(amountString)!
+                        displayAmount(bill: amountDouble)
+                    }
                 }
             default:
                 amountString += digit!
@@ -77,7 +74,9 @@ class ViewController: UIViewController {
         let tipPrice = currencyFormat.string(from: NSNumber(value: amount * tipPercentage))!
         let totalPrice = currencyFormat.string(from: NSNumber(value: amount * (1 + tipPercentage)))!
         
+        
         billAmount.text = "Bill Amount: \(currencyCode) \(price)"
+        tipPercentageLabel.text = "Tip Percentage: \(tipPercentage * 100)"
         tipAmount.text = "Tip Amount: \(currencyCode) \(tipPrice)"
         totalAmount.text = "Total Bill: \(currencyCode) \(totalPrice)"
         

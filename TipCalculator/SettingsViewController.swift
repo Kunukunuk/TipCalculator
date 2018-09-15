@@ -28,7 +28,7 @@ class SettingsViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     @IBAction func setTipAmount(_ sender: Any) {
-        print("hello")
+        
         tipPercentage = Double(enterTip.text!)! / 100
         enterTip.text = String(Int(tipPercentage * 100))
         view.endEditing(true)
@@ -36,20 +36,11 @@ class SettingsViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-        print("am i here?")
+    
         (viewController as? ViewController)?.tipPercentage = tipPercentage
-        print("\((viewController as? ViewController)?.tipPercentage)")
+        (viewController as? ViewController)?.tipPercentageLabel.text = "\(tipPercentage * 100)"
+        let price = (viewController as? ViewController)?.amountString
+        (viewController as? ViewController)?.displayAmount(bill: Double(price!)!)
         
     }
-    
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("hello asdasd")
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-
-
 }
