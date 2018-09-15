@@ -38,13 +38,16 @@ class ViewController: UIViewController {
                         displayAmount(bill: 0.0)
                     } else {
                         amountString = String(amountString.prefix(amountString.count-1))
-                        amountDouble = Double(amountString)!
-                        displayAmount(bill: amountDouble)
+                        if amountString == "." {
+                            displayAmount(bill: 0.0)
+                        } else {
+                            amountDouble = Double(amountString)!
+                            displayAmount(bill: amountDouble)
+                        }
                     }
                 }
             case ".":
                 if !amountString.contains(".") {
-                    print(amountString + " asd")
                     amountString += digit!
                     if amountString.count == 1 {
                         displayAmount(bill: 0.0)
